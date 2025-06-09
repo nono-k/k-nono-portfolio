@@ -1,0 +1,40 @@
+---
+import { headerLink } from '@/config';
+---
+
+<header class="header">
+  <nav class="header__nav">
+    <ul class="header__list">
+      {headerLink.map(item => {
+        return (
+          <li>
+            <a href={item.url} class="header__link">{item.name}</a>
+          </li>
+        )
+      })}
+    </ul>
+  </nav>
+</header>
+
+<style lang="scss">
+  .header {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    position: relative;
+    &::before {
+      content: '';
+      width: 1px;
+      height: calc(100dvh - 2.5rem);
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--black);
+    }
+    &__list {
+      display: flex;
+      gap: 1rem;
+      text-transform: uppercase;
+      margin-left: 1rem;
+    }
+  }
+</style>
